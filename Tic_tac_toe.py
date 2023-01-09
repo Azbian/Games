@@ -234,7 +234,7 @@ def over(tic,a):
 		c="Robot"
 	if tic.game_over() or tic.won():
 		if tic.won():
-			print(f"{c}won")
+			print(f"{c} won")
 		else:
 			print("Match tied")
 		return True
