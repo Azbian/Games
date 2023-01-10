@@ -1,6 +1,5 @@
 import os
 import time
-import getch
 import random
 import copy
 
@@ -38,6 +37,8 @@ class tictac:
 ##Game over!!
 	def won(self):			
 		if self.row_match() or self.column_match() or self.cross_match():
+			os.system('clear')
+			printing(self.list)
 			return True
 		else:
 			return False
@@ -47,6 +48,8 @@ class tictac:
 			if i=='X' or i=='O':
 				x+=1
 		if x==9:
+			os.system('clear')
+			printing(self.list)
 			return True
 		else:
 			return False
@@ -122,8 +125,6 @@ def robot(list,turn):
 	if bool:
 		list.list[int(simulate(pos,list))]='O'
 	os.system('clear')
-	printing(tic.list)
-
 
 ##Count for 'O' and 'X'
 def counter(char,list):
@@ -222,10 +223,13 @@ def player(tic):
 		time.sleep(0.8)
 		return True
 	a=int(a)
+	if tic.list[a-1]=='O' or tic.list[a-1]=='X':
+		print("\nPosition is already filled,please choose a different position")
+		time.sleep(1)
+		return True
 	tic.list[a-1]="X"
 	os.system('clear')
-	printing(tic.list)
-
+	
 ##check if game is over
 def over(tic,a):
 	if a==0:
