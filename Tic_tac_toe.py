@@ -216,7 +216,6 @@ def permutation(list):
 def player(tic):
 	print("=============\nYour turn...\n=============\n")
 	printing(tic.list)
-#	a='1'
 	a=input("\nGive the position(1-9) for your sign : ")
 	if a not in list('123456789'):
 		print("\n!!!!Please enter between 1 to 9!!!!")
@@ -239,6 +238,7 @@ def over(tic,a):
 	if tic.game_over() or tic.won():
 		if tic.won():
 			print(f"{c} won")
+			return True
 		else:
 			print("Match tied")
 		return True
@@ -246,7 +246,6 @@ def over(tic,a):
 ############ Main Function ###########
 
 tic=tictac()
-#turn=1
 turn=random.randint(0,1)			#if 0 1st turn is player's and if 1 1st turn will be robot's
 if turn==0:
 	while 1:
